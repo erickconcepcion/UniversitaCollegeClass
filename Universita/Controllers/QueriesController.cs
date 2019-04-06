@@ -23,21 +23,32 @@ namespace Universita.Controllers
         }
 
         // GET: Queries/Details/5
-        public ActionResult EstudianteCarreras()
+        public ActionResult EstudianteCarreras(string id)
         {
+            if (id!=null)
+            {
+                return View("EstudianteCarreras", JsonConvert.SerializeObject(_service.GetEstudianteCarreraPlanById(id)));
+            }
             return View("EstudianteCarreras", JsonConvert.SerializeObject(_service.GetEstudianteCarreraPlan()));
         }
 
         // GET: Queries/Create
-        public ActionResult MediosDePago()
+        public ActionResult MediosDePago(int? id)
         {
-            return View("MediosDePago", JsonConvert.SerializeObject(_service.GetMedioDePago()));
+            if (id==null)
+            {
+                return View("MediosDePago", JsonConvert.SerializeObject(_service.GetMedioDePago()));
+            }
+            return View("MediosDePago", JsonConvert.SerializeObject(_service.GetMedioDePagoById(id.Value)));
         }
         
-
-        public ActionResult TipoProfesores()
+        public ActionResult TipoProfesores(int? id)
         {
-            return View("TipoProfesores", JsonConvert.SerializeObject(_service.GetProfesoresPorTipo()));
+            if (id==null)
+            {
+                return View("TipoProfesores", JsonConvert.SerializeObject(_service.GetProfesoresPorTipo()));
+            }
+            return View("TipoProfesores", JsonConvert.SerializeObject(_service.GetProfesoresPorTipoById(id.Value)));
         }
 
         

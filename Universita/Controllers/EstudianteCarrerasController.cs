@@ -24,7 +24,7 @@ namespace Universita.Controllers
             return _service.GetEstudianteCarreraPlan();
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Estudiantes Get(string id)
         {
             return _service.GetEstudianteCarreraPlanById(id);

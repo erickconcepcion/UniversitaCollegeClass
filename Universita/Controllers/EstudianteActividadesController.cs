@@ -21,31 +21,15 @@ namespace Universita.Controllers
         [HttpGet]
         public IEnumerable<Estudiantes> Get()
         {
-            return _service.GetEstudianteCarreraPlan();
+            return _service.GetEstudianteActividades();
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Estudiantes Get(string id)
         {
-            return _service.GetEstudianteCarreraPlanById(id);
+            return _service.GetEstudianteActividadesById(id);
         }
 
-        // POST: api/EstudianteActividades
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/EstudianteActividades/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }

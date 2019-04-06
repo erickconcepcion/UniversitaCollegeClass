@@ -63,5 +63,18 @@ namespace Universita.Test
             Assert.NotNull(queryService.GetProfesoresPorTipoById(1));
         }
 
+        [Fact]
+        public void GetMedioDePagoTest()
+        {
+            var all = queryService.GetMedioDePago();
+            Assert.NotEmpty(all);
+        }
+
+        [Fact]
+        public void GetMedioDePagoByIdTest()
+        {
+            Assert.NotNull(queryService.GetMedioDePagoById(1));
+        }
+
     }
 }

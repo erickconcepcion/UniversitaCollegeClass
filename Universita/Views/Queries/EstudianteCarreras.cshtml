@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Servuniv.Data.Entities.Estudiantes>
+
+@{
+    ViewData["Title"] = "EstudianteCarreras";
+}
+
+<h1>EstudianteCarreras</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trabaja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plandeestudios.Carreras.Carrera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Indice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Condiciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plandeestudios)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trabaja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plandeestudios.Carreras.Carrera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Indice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plandeestudios.Fecha)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

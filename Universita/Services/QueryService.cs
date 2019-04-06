@@ -80,6 +80,11 @@ namespace Universita.Services
                 item.Ciudades.EstudiantesDirecciones = null;
                 item.Sectores.EstudiantesDirecciones = null;
             }
+            foreach (var item in est.EstudiantesTelefonos)
+            {
+                item.Estudiantes = null;
+                item.Tipodetelefonos.EstudiantesTelefonos = null;
+            }
         }
         public ICollection<Estudiantes> GetEstudianteDirTel()
         {
@@ -106,7 +111,7 @@ namespace Universita.Services
             foreach (var item in tp.Profesores)
             {
                 item.ProfesoresTipos = null;
-                item.Condiciones = null;
+                item.Condiciones.Profesores = null;
             }
         }
         public ICollection<ProfesoresTipos> GetProfesoresPorTipo()
@@ -127,16 +132,17 @@ namespace Universita.Services
         {
             foreach (var item in tp.EstudiantesPagos)
             {
+                item.Mediosdepago = null;
                 item.Estudiantes.EstudiantesPagos = null;
-                item.Mediosdepago.EstudiantesPagos = null;
+                item.Tipodepagos.EstudiantesPagos = null;
             }
         }
         public ICollection<Mediosdepago> GetMedioDePago()
         {
             var medios = _context.Mediosdepagos
-                .Include(tp => tp.EstudiantesPagos.First().Estudiantes)
+                .Include(tp => tp.EstudiantesPagos)
                 .Include("EstudiantesPagos.Estudiantes")
-                .Include("EstudiantesPagos.Mediosdepago").ToList();
+                .Include("EstudiantesPagos.Tipodepagos").ToList();
             foreach (var item in medios)
             {
                 removeMpRec(item);

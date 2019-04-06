@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Universita.Services;
 
 namespace Universita.Controllers
@@ -18,33 +19,33 @@ namespace Universita.Controllers
         // GET: Queries
         public ActionResult EstudianteActividades()
         {
-            return View(_service.GetEstudianteActividades());
+            return View("EstudianteActividades", JsonConvert.SerializeObject(_service.GetEstudianteActividades()));
         }
 
         // GET: Queries/Details/5
         public ActionResult EstudianteCarreras()
         {
-            return View(_service.GetEstudianteCarreraPlan());
+            return View("EstudianteCarreras", JsonConvert.SerializeObject(_service.GetEstudianteCarreraPlan()));
         }
 
         // GET: Queries/Create
         public ActionResult MediosDePago()
         {
-            return View(_service.GetMedioDePago());
+            return View("MediosDePago", JsonConvert.SerializeObject(_service.GetMedioDePago()));
         }
+        
 
         public ActionResult TipoProfesores()
         {
-            return View(_service.GetProfesoresPorTipo());
+            return View("TipoProfesores", JsonConvert.SerializeObject(_service.GetProfesoresPorTipo()));
         }
-        public ActionResult TipoProfesores(int id)
-        {
-            return View(_service.GetProfesoresPorTipoById(id));
-        }
+
+        
         public ActionResult EstudianteDirTels()
         {
-            return View(_service.GetEstudianteDirTel());
+            return View("EstudianteDirTels", JsonConvert.SerializeObject(_service.GetEstudianteDirTel()));
         }
         
+
     }
 }

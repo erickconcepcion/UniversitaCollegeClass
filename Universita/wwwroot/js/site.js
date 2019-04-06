@@ -2,3 +2,5 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+var jsonViewer = new JSONViewer();
+document.querySelector("#json").appendChild(jsonViewer.getContainer());

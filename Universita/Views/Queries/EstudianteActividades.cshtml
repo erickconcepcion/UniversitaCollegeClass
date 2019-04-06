@@ -1,96 +1,13 @@
-﻿@model IEnumerable<Servuniv.Data.Entities.Estudiantes>
+﻿@model string
 
 @{
     ViewData["Title"] = "EstudianteActividades";
 }
 
 <h1>EstudianteActividades</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Identificacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellidos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nacimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingreso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Trabaja)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Idcarrera)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Indice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Condiciones)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EstudiantesTipos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Plandeestudios)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            @foreach (var extra in item.EstudiantesExtracurriculares)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Identificacion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nombres)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Apellidos)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nacimiento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ingreso)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Trabaja)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Idcarrera)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Indice)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Condiciones.Condicion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EstudiantesTipos.Tipo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Plandeestudios.Idplan)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Matricula">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Matricula">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Matricula">Delete</a>
-                    </td>
-                </tr>
-            }
-        }
-    </tbody>
-</table>
+<div id="json"></div>
+@section Scripts{ 
+<script>
+        jsonViewer.showJSON(@Html.Raw(Model), -1, -1);
+</script>
+}
